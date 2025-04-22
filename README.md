@@ -73,7 +73,8 @@ Es importante entender que **no todos los errores pueden o deben resolverse simp
 separadas: no todas las clases deben saber cómo comunicarse con el usuario. Una clase encargada de cálculos, validación
 o almacenamiento no debería estar preocupada por cómo mostrar un mensaje de error.
 
-💡 **Tip de diseño:** Usar excepciones permite delegar la responsabilidad de mostrar el error al usuario a una capa
+💡 **Tip de diseño**:
+> Usar excepciones permite delegar la responsabilidad de mostrar el error al usuario a una capa
 superior del sistema (como la interfaz gráfica o de consola), sin comprometer la lógica de negocio o los componentes
 internos. Esto **respeta el principio de separación de responsabilidades** y contribuye a un diseño más limpio,
 reutilizable y mantenible.
@@ -233,9 +234,7 @@ int main() {
         std::cerr << "Error al agregar producto: " << e.what() << std::endl;
     }
 
-    std::cout << "
-Productos en la tienda:
-";
+    std::cout << "Productos en la tienda:";
     tienda.listarProductos();
 
     return 0;
@@ -248,21 +247,7 @@ Este diseño mantiene una clara separación de responsabilidades:
 - `Tienda` solo gestiona una lista de productos.
 - `main()` se encarga de la interacción con el usuario.
 
-## 3. Sintaxis básica: try, catch, throw
-
-### Estructura básica
-
-
-
-
-
-### throw
-
-- Se usa para lanzar una excepción desde una función o bloque de código.
-- Puede lanzar tipos predefinidos (`int`, `std::string`, `std::exception`) o clases personalizadas.
-
 ---
-
 
 ## 3. Sintaxis básica: try, catch, throw
 Para implementar correctamente la gestión de excepciones en C++, es importante conocer los tres elementos clave que la componen. Estos permiten estructurar un flujo de control alternativo para manejar condiciones anómalas en tiempo de ejecución:
@@ -295,8 +280,6 @@ En resumen:
 
 Esta estructura te permite mantener programas más seguros, legibles y preparados para enfrentar situaciones imprevistas sin colapsar.
 
-### Ejemplo de uso de `try`, `throw` y `catch`
-
 ### Ejemplo: División por cero
 
 ```cpp
@@ -325,24 +308,6 @@ int main() {
 > **what():** es un método que ayuda a obtener un mensaje de error como cadena de caracteres  (const char*)
 El método `what()` se encargara de recibir lo que es enviado por domain:error, invalid_argument, out_of_range, etc. Y al ser un string podrá ser usado para mostrarlo al usuario o guardarlo en un log de registro
 
-
-## 4. Excepciones estándar vs personalizadas
-
-### Excepciones estándar (incluidas en `<stdexcept>`, `<exception>`)
-
-- `std::exception`: clase base de todas las excepciones estándar
-- `std::runtime_error`, `std::logic_error`, `std::out_of_range`, `std::invalid_argument`, etc.
-
-### Crear tu propia clase de excepción
-
-```cpp
-class NotaInvalidaException : public std::exception {
-public:
-    const char* what() const noexcept override {
-        return "La nota debe estar entre 0.0 y 5.0";
-    }
-};
-```
 
 ## 🧠 Consejos prácticos para principiantes
 
@@ -503,7 +468,7 @@ No todas las funciones deben tener `try-catch`. Muchas veces, solo lanzan errore
 
 
 
-## 🧪 Actividad de aprendizaje: Manejo de excepciones en el sistema de tienda
+## 🧪 Práctica Manejo de excepciones en el sistema de tienda
 
 ### 🎯 Objetivo de la actividad
 
