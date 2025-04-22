@@ -77,10 +77,6 @@ o almacenamiento no debería estar preocupada por cómo mostrar un mensaje de er
 superior del sistema (como la interfaz gráfica o de consola), sin comprometer la lógica de negocio o los componentes
 internos. Esto **respeta el principio de separación de responsabilidades** y contribuye a un diseño más limpio,
 reutilizable y mantenible.
-
-A continuación veremos ejemplos que demuestran cómo las excepciones ayudan a estructurar mejor el software en
-situaciones reales y orientadas a objetos.
-
 ---
 
 ### 🧩 Ejemplo aplicado con separación de responsabilidades
